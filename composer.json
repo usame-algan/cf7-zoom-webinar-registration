@@ -1,0 +1,13 @@
+{
+    "name": "usame-algan/cf7-zoom-webinar-registration",
+    "description": "Register attendees for a Zoom Webinar through Contact Form 7",
+    "require": {
+        "firebase/php-jwt": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "Usame Algan",
+            "email": "info@usamealgan.com"
+        }
+    ]
+}
