@@ -1,5 +1,8 @@
 # Contact Form 7 Zoom Webinar Registration
 
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/ualgan)
+
 Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
 
 ## Requirements
