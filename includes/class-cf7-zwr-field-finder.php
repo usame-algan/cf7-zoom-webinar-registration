@@ -50,7 +50,6 @@ Class CF7_ZWR_field_finder {
             }
         }
 
-
         return $fields_guessed;
     }
 

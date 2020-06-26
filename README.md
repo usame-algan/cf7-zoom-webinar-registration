@@ -12,7 +12,7 @@ Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
 
 ## Installation
 
-1. Download the repository .zip file: [cf7-zoom-webinar-registration.zip](#)
+1. Download the [latest release](https://github.com/usame-algan/cf7-zoom-webinar-registration/releases/latest)
 2. Upload the file to your wordpress installation
 3. Activate the plugin
 
