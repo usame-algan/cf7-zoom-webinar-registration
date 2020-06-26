@@ -6,7 +6,7 @@
  Version: 1.0.0
  Author: Usame Algan
  Author URI: https://usamealgan.com
- Text Domain: cf7-zoom-webinar-registration
+ Text Domain: cf7-zwr
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,19 +19,18 @@ if (!defined('CF7_ZWR_VERSION')) {
 }
 
 if (!defined('CF7_ZWR_PATH')) {
-    define('CF7_ZWR_PATH', plugin_dir_path( __FILE__ ) );
+    define('CF7_ZWR_PATH', plugin_dir_path( __FILE__ ));
 }
 
-if (!defined('CF7_ZWR_ZOOM_API_URL')) {
-    define('CF7_ZWR_ZOOM_API_URL', 'https://api.zoom.us/v2' );
+if (!defined('CF7_ZWR_PLUGIN_FILE')) {
+    define('CF7_ZWR_PLUGIN_FILE', __FILE__);
 }
 
-add_action('wpcf7_init', 'cf7_zwr_init');
-function cf7_zwr_init() {
-    require_once CF7_ZWR_PATH . 'vendor/autoload.php';
-    require_once CF7_ZWR_PATH . 'includes/cf7_zwr.php';
-}
+require_once CF7_ZWR_PATH . 'vendor/autoload.php';
+require_once CF7_ZWR_PATH . 'includes/class-cf7-zwr.php';
 
-if (is_admin()) {
-    require_once CF7_ZWR_PATH . 'admin/cf7_zwr_admin.php';
+function run_cf7_zwr() {
+    $cf7_zwr = new CF7_ZWR();
+    $cf7_zwr->run();
 }
+run_cf7_zwr();
