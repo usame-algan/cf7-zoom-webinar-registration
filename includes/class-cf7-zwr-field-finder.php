@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Filter submitted Contact Form 7 fields by their name or guess the required fields.
+ *
+ * @since      1.0.0
+ * @package    CF7_ZWR
+ * @subpackage CF7_ZWR/includes
+ * @author     Usame Algan
+ */
 Class CF7_ZWR_field_finder {
     protected $fields;
 

@@ -1,11 +1,14 @@
 <?php
-/**
- * CF7 Zoom Webinar Registration API
- * @author Usame Algan
- */
 
 use \Firebase\JWT\JWT;
 
+/**
+ * Handles requests to the Zoom API
+ * @since      1.0.0
+ * @package    CF7_ZWR
+ * @subpackage CF7_ZWR/includes
+ * @author     Usame Algan
+ */
 class CF7_ZWR_api {
     private $plugin_name;
     private $version;
@@ -66,7 +69,6 @@ class CF7_ZWR_api {
         preg_match($regex, $wpcf->additional_settings, $matches);
 
         $webinar_id = $matches[0];
-        print_r($contactform);
 
         $field_parser = new CF7_ZWR_field_finder($posted_data);
         $fields = $field_parser->combine(['prefixed', 'guessed']);
@@ -74,19 +76,6 @@ class CF7_ZWR_api {
         if ($webinar_id) {
             $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants', array('body' => wp_json_encode($fields)), 'POST');
             $this->run($this->token);
-
-            /*
-            print_r("Sent Fields: \n");
-            print_r(wp_json_encode($fields));
-            print_r("Response Header: \n");
-            print_r($this->headers);
-            print_r("Response Body: \n");
-            print_r($this->body);
-            print_r("Response Code: \n");
-            print_r($this->response_code);
-            print_r("Response Message: \n");
-            print_r($this->response_message);
-            */
         }
         return $wpcf;
     }

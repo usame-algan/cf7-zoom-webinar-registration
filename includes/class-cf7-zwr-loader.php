@@ -1,5 +1,15 @@
 <?php
-
+/**
+ * Register all actions and filters for the plugin.
+ *
+ * Maintain a list of all hooks that are registered throughout
+ * the plugin, and register them with the WordPress API. Call the
+ * run function to execute the list of actions and filters.
+ *
+ * @package    CF7_ZWR
+ * @subpackage CF7_ZWR/includes
+ * @author     Usame Algan
+ */
 class CF7_ZWR_Loader {
 
     protected $actions;

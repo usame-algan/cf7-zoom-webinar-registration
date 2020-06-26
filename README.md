@@ -1,6 +1,6 @@
 # Contact Form 7 Zoom Webinar Registration
 
-Allow registrations for you Zoom Webinar through Wordpress Contact Form 7
+Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
 
 ## Requirements
 
@@ -21,7 +21,7 @@ Allow registrations for you Zoom Webinar through Wordpress Contact Form 7
 
 ## Bugs
 
-If you find any Bugs please feel free to [open an issue here](#)!
+If you find any Bugs please feel free to [open an issue here](https://github.com/usame-algan/cf7-zoom-webinar-registration/issues)!
 
 ## Credits
 

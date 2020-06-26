@@ -1,9 +1,12 @@
 <?php
-/**
- * CF7 Zoom Webinar Registration
- * @author Usame Algan
- */
 
+/**
+ * Main Class. Loads dependencies and registers hooks
+ * @since      1.0.0
+ * @package    CF7_ZWR
+ * @subpackage CF7_ZWR/includes
+ * @author     Usame Algan
+ */
 class CF7_ZWR {
     protected $loader;
     protected $plugin_name;

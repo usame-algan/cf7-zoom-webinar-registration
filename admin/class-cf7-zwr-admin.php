@@ -1,9 +1,12 @@
 <?php
-/**
- * Admin class of CF7 Zoom Webinar Registration
- * @author Usame Algan
- */
 
+/**
+ * Registers settings page and handles the saved data.
+ * @since      1.0.0
+ * @package    CF7_ZWR
+ * @subpackage CF7_ZWR/admin
+ * @author     Usame Algan
+ */
 class CF7_ZWR_admin {
 
     private $plugin_name;
@@ -46,11 +49,6 @@ class CF7_ZWR_admin {
         $settings['api_key'] = sanitize_text_field( $settings['api_key'] );
         $settings['api_secret'] = sanitize_text_field( $settings['api_secret'] );
         return $settings;
-    }
-
-    public function cf7_zwr_get_options() {
-        $options = (array) get_option('cf7_zwr');
-        return $options;
     }
 
     public function display_api_key_field() {
