@@ -24,7 +24,7 @@ Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
 
 ## License
 
-This plugin is licensed under the GPL v3. See the `LICENSE` file for more information.
+This plugin is licensed under the GPL v3. See `license.txt` for more information.
 
 ## Bugs
 
