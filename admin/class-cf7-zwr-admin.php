@@ -7,7 +7,7 @@
  * @subpackage CF7_ZWR/admin
  * @author     Usame Algan
  */
-class CF7_ZWR_admin {
+class CF7_ZWR_Admin {
 
     private $plugin_name;
     private $version;

@@ -9,7 +9,7 @@ use \Firebase\JWT\JWT;
  * @subpackage CF7_ZWR/includes
  * @author     Usame Algan
  */
-class CF7_ZWR_api {
+class CF7_ZWR_Api {
     private $plugin_name;
     private $version;
 
@@ -70,7 +70,7 @@ class CF7_ZWR_api {
 
         $webinar_id = $matches[0];
 
-        $field_parser = new CF7_ZWR_field_finder($posted_data);
+        $field_parser = new CF7_ZWR_Field_Finder($posted_data);
         $fields = $field_parser->combine(['prefixed', 'guessed']);
 
         if ($webinar_id) {

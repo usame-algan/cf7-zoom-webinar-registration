@@ -8,7 +8,7 @@
  * @subpackage CF7_ZWR/includes
  * @author     Usame Algan
  */
-Class CF7_ZWR_field_finder {
+Class CF7_ZWR_Field_Finder {
     protected $fields;
 
     public function __construct($fields) {
@@ -37,7 +37,7 @@ Class CF7_ZWR_field_finder {
         $fields_guessed = array();
 
         foreach($this->fields as $key => $value) {
-            if(preg_match('/email|mail/i', $key) || is_email($value)) {
+            if(preg_match('/email|mail/i', $key)) {
                 $fields_guessed["email"] = $value;
             }
 

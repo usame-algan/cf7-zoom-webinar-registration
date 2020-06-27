@@ -10,7 +10,7 @@
  * @subpackage CF7_ZWR/includes
  * @author     Usame Algan
  */
-class CF7_ZWR_i18n {
+class CF7_ZWR_I18N {
 
     public function load_plugin_textdomain() {
 

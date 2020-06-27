@@ -38,19 +38,19 @@ class CF7_ZWR {
     }
 
     private function set_locale() {
-        $plugin_i18n = new CF7_ZWR_i18n();
+        $plugin_i18n = new CF7_ZWR_I18N();
         $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
     }
 
     private function define_admin_hooks() {
-        $cf7_zwr_admin = new CF7_ZWR_admin( $this->get_plugin_name(), $this->get_version() );
+        $cf7_zwr_admin = new CF7_ZWR_Admin( $this->get_plugin_name(), $this->get_version() );
 
         $this->loader->add_action( 'admin_menu', $cf7_zwr_admin, 'add_setting_page' );
         $this->loader->add_action( 'admin_init', $cf7_zwr_admin, 'initialize_settings' );
     }
 
     private function define_public_hooks() {
-        $cf7_zwr_public = new CF7_ZWR_api( $this->get_plugin_name(), $this->get_version() );
+        $cf7_zwr_public = new CF7_ZWR_Api( $this->get_plugin_name(), $this->get_version() );
 
         $this->loader->add_action( 'wpcf7_before_send_mail', $cf7_zwr_public, 'send_registration', 10, 3 );
     }
