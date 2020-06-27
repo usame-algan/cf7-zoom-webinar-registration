@@ -22,6 +22,10 @@ Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
 2. The plugin looks for field names prefixed with `cf7zwr-`. The rest of the field name should be according to the [Zoom API reference](https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantcreate). For example if you want to save the first name of a registrant the field should be named `cf7zwr-first_name`.
 3. The webinar ID needs to be saved with the form under `Additional Settings`. The Syntax is `webinar_id: {your webinar id without whitespaces}`
 
+## License
+
+This plugin is licensed under the GPL v3. See the `LICENSE` file for more information.
+
 ## Bugs
 
 If you find any Bugs please feel free to [open an issue here](https://github.com/usame-algan/cf7-zoom-webinar-registration/issues)!
