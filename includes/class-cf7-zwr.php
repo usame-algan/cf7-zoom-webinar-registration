@@ -47,8 +47,8 @@ class CF7_ZWR {
 
         $this->loader->add_action( 'admin_menu', $cf7_zwr_admin, 'add_setting_page' );
         $this->loader->add_action( 'admin_init', $cf7_zwr_admin, 'initialize_settings' );
-		$this->loader->add_action( 'wpcf7_save_contact_form', $cf7_zwr_admin, 'save_cf7zwr_custom_fields');
-        $this->loader->add_filter( 'wpcf7_editor_panels', $cf7_zwr_admin, 'initialize_cf7zwr_settings');
+		$this->loader->add_action( 'wpcf7_save_contact_form', $cf7_zwr_admin, 'save_custom_fields');
+        $this->loader->add_filter( 'wpcf7_editor_panels', $cf7_zwr_admin, 'initialize_settings_panel');
     }
 
     private function define_public_hooks() {

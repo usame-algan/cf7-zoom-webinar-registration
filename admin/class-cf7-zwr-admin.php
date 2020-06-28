@@ -61,24 +61,49 @@ class CF7_ZWR_Admin {
         <input type="password" value="<?php echo esc_attr($settings['api_secret']); ?>" name="cf7_zwr[api_secret]" /><?php
     }
 	
-	public function initialize_cf7zwr_settings($panels) {
+	public function initialize_settings_panel($panels) {
         $panels['cf7zwr-custom-fields'] = array(
             'title' => 'Zoom',
-            'callback' => array($this, 'cf7zwr_custom_fields'),
+            'callback' => array($this, 'display_custom_fields'),
         );
 
         return $panels;
     }
 
-    public function cf7zwr_custom_fields($contactform) {
-        $value = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true); ?>
+    public function display_custom_fields($contactform) {
+        $webinar_id = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true); ?>
         <fieldset>
             <label for="wpcf7-custom-field"><?php _e('Webinar-ID', 'cf7-zwr'); ?></label>
-            <input type="text" id="wpcf7-custom-field" name="cf7_zwr_webinar_id" value="<?php echo $value ?>" />
+            <input type="text" id="wpcf7-custom-field" name="cf7_zwr_webinar_id" value="<?php echo $webinar_id ?>" />
         </fieldset><?php
+        $api = new CF7_ZWR_Api($this->plugin_name, $this->version);
+        if ($webinar_id) {
+            $webinar_fields = $api->get_webinar_questions($webinar_id);
+            $this->display_webinar_questions($webinar_fields);
+        }
     }
 
-    public function save_cf7zwr_custom_fields($contactform) {
+    public function display_webinar_questions($webinar_fields) { ?>
+        <p><?php _e('Fields found for this webinar', 'cf7-zwr'); ?></p>
+        <table class="widefat striped">
+            <thead>
+            <tr>
+                <td><?php _e('Field name', 'cf7-zwr'); ?></td>
+                <td><?php _e('Required', 'cf7-zwr'); ?></td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($webinar_fields as $field) : ?>
+                <tr>
+                    <td><?php echo $field['field_name']; ?></td>
+                    <td><?php echo $field['required'] ? "true" : "false" ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table><?php
+    }
+
+    public function save_custom_fields($contactform) {
         if (array_key_exists('cf7_zwr_webinar_id', $_POST)) {
             $webinarId = str_replace(" ", "", $_POST['cf7_zwr_webinar_id']);
             update_post_meta(

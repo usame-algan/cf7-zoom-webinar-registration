@@ -14,7 +14,8 @@ class CF7_ZWR_Api {
     private $version;
 
     protected $api_url = 'https://api.zoom.us/v2';
-    protected $webinar_identifier = 'webinar_id:';
+    protected $required_questions;
+
     protected $token = '';
     protected $method;
     protected $url;
@@ -28,6 +29,17 @@ class CF7_ZWR_Api {
     public function __construct($plugin_name, $version) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+
+        $this->required_questions = array(
+            array(
+                "field_name" => "first_name",
+                "required" => true
+            ),
+            array(
+                "field_name" => "email",
+                "required" => true
+            ),
+        );
     }
 
     public function build($url, $arguments = array(), $method = "GET") {
@@ -74,6 +86,15 @@ class CF7_ZWR_Api {
             $this->run($this->token);
         }
         return $wpcf;
+    }
+
+    public function get_webinar_questions($webinar_id) {
+        $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants/questions', array(), 'GET');
+        $this->run($this->token);
+
+        $combined_questions = array_merge($this->required_questions, json_decode($this->body, true)["questions"]);
+
+        return $combined_questions;
     }
 
 }
