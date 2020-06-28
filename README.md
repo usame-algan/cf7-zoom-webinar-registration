@@ -30,6 +30,11 @@ This plugin is licensed under the GPL v3. See `license.txt` for more information
 
 If you find any Bugs please feel free to [open an issue here](https://github.com/usame-algan/cf7-zoom-webinar-registration/issues)!
 
+## Changelog
+
+#### [1.0.2] - 2020-06-28
+- Added custom field for the webinar id
+
 ## Credits
 
 This plugin was inspired by [Gravity Forms Zoom Webinar Registration](https://github.com/michaelbourne/gravity-forms-zoom-webinar-registration)

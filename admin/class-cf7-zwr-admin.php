@@ -60,4 +60,32 @@ class CF7_ZWR_Admin {
         $settings = CF7_ZWR::get_options(); ?>
         <input type="password" value="<?php echo esc_attr($settings['api_secret']); ?>" name="cf7_zwr[api_secret]" /><?php
     }
+	
+	public function initialize_cf7zwr_settings($panels) {
+        $panels['cf7zwr-custom-fields'] = array(
+            'title' => 'Zoom',
+            'callback' => array($this, 'cf7zwr_custom_fields'),
+        );
+
+        return $panels;
+    }
+
+    public function cf7zwr_custom_fields($contactform) {
+        $value = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true); ?>
+        <fieldset>
+            <label for="wpcf7-custom-field"><?php _e('Webinar-ID', 'cf7-zwr'); ?></label>
+            <input type="text" id="wpcf7-custom-field" name="cf7_zwr_webinar_id" value="<?php echo $value ?>" />
+        </fieldset><?php
+    }
+
+    public function save_cf7zwr_custom_fields($contactform) {
+        if (array_key_exists('cf7_zwr_webinar_id', $_POST)) {
+            $webinarId = str_replace(" ", "", $_POST['cf7_zwr_webinar_id']);
+            update_post_meta(
+                $contactform->id(),
+                'cf7zwr-webinar_id',
+                $webinarId
+            );
+        }
+    }
 }

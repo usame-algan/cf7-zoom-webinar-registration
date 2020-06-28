@@ -64,11 +64,7 @@ class CF7_ZWR_Api {
     public function send_registration($contactform, &$abort, $submission) {
         $wpcf = $contactform::get_current();
         $posted_data = $submission->get_posted_data();
-
-        $regex = '/(?<=\b' . $this->webinar_identifier . '\s)(?:[\w-]+)/is';
-        preg_match($regex, $wpcf->additional_settings, $matches);
-
-        $webinar_id = $matches[0];
+        $webinar_id = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true);
 
         $field_parser = new CF7_ZWR_Field_Finder($posted_data);
         $fields = $field_parser->combine(['prefixed', 'guessed']);
