@@ -32,9 +32,11 @@ If you find any Bugs please feel free to [open an issue here](https://github.com
 
 ## Changelog
 
+#### [1.0.3] - 2020-06-28
+- Now displays selected questions from Zoom once the webinar id has been set
+
 #### [1.0.2] - 2020-06-28
 - Added custom field for the webinar id
-- Now displays selected questions from Zoom once the webinar id has been set
 
 ## Credits
 
