@@ -32,6 +32,9 @@ If you find any Bugs please feel free to [open an issue here](https://github.com
 
 ## Changelog
 
+#### [1.0.4] - 2020-08-05
+- Show a notice box for missing required fields
+
 #### [1.0.3] - 2020-06-28
 - Now displays selected questions from Zoom once the webinar id has been set
 
