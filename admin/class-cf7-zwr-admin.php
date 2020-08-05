@@ -80,6 +80,7 @@ class CF7_ZWR_Admin {
         if ($webinar_id) {
             $webinar_fields = $api->get_webinar_questions($webinar_id);
             $this->display_webinar_questions($webinar_fields);
+            $this->display_missing_fields_notice($contactform, $webinar_fields);
         }
     }
 
@@ -101,6 +102,31 @@ class CF7_ZWR_Admin {
             <?php endforeach; ?>
             </tbody>
         </table><?php
+    }
+
+    public function display_missing_fields_notice($contactform, $webinar_fields) {
+        $cf7_form_tags = $contactform->scan_form_tags();
+        $stripped_fields = array_map(function($field) { return self::strip_prefix($field["name"], "cf7zwr-"); }, $cf7_form_tags);
+        $stripped_fields = array_filter($stripped_fields);
+        $missing_fields = array();
+
+        foreach($webinar_fields as $zoom_field) {
+            if (!in_array($zoom_field["field_name"], $stripped_fields) && $zoom_field["required"]) {
+                $missing_fields[] = $zoom_field["field_name"];
+            }
+        }
+        if (count($missing_fields) > 0) : ?>
+            <div class="notice inline notice-warning notice-alt">
+                <p><?php _e("Can't find the following required field(s):", "cf7-zwr"); ?></p>
+                <p><?php echo(implode(",", $missing_fields)); ?></p>
+            </div>
+        <?php endif;
+    }
+
+    public function strip_prefix($value, $prefix) {
+        if (strpos($value, $prefix) === 0) {
+            return substr($value, strlen($prefix));
+        }
     }
 
     public function save_custom_fields($contactform) {
