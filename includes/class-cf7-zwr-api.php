@@ -79,7 +79,7 @@ class CF7_ZWR_Api {
         $webinar_id = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true);
 
         $field_parser = new CF7_ZWR_Field_Finder($posted_data);
-        $fields = $field_parser->combine(['prefixed', 'guessed']);
+        $fields = $field_parser->combine(['guessed', 'prefixed']);
 
         if ($webinar_id) {
             $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants', array('body' => wp_json_encode($fields)), 'POST');
