@@ -32,6 +32,9 @@ If you find any Bugs please feel free to [open an issue here](https://github.com
 
 ## Changelog
 
+#### [1.0.5] - 2020-08-07
+- Fixes a bug that caused guessed fields to overwrite prefixed fields
+
 #### [1.0.4] - 2020-08-05
 - Show a notice box for missing required fields
 
