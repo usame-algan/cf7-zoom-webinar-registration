@@ -14,7 +14,7 @@ class CF7_ZWR_Api {
     private $version;
 
     protected $api_url = 'https://api.zoom.us/v2';
-    protected $required_questions;
+    public $required_questions;
 
     protected $token = '';
     protected $method;
@@ -99,9 +99,7 @@ class CF7_ZWR_Api {
         $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants/questions', array(), 'GET');
         $this->run($this->token);
 
-        $combined_questions = array_merge($this->required_questions, json_decode($this->body, true)["questions"]);
-
-        return $combined_questions;
+        return json_decode($this->body, true);
     }
 
 }

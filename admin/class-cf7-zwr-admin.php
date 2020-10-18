@@ -79,7 +79,8 @@ class CF7_ZWR_Admin {
         $api = new CF7_ZWR_Api($this->plugin_name, $this->version);
         if ($webinar_id) {
             $webinar_fields = $api->get_webinar_questions($webinar_id);
-            $this->display_webinar_questions($webinar_fields);
+            $combined_questions = array_merge($api->required_questions, $webinar_fields["questions"]);
+            $this->display_webinar_questions($combined_questions);
             $this->display_missing_fields_notice($contactform, $webinar_fields);
         }
     }
