@@ -21,8 +21,8 @@ Class CF7_ZWR_Field_Finder {
 
         foreach($this->fields as $key => $value) {
             if(strpos($key, $namespace) === 0) {
-                $new_key = substr($key, $length);
-                $fields_with_prefix[$new_key] = $value;
+                $key_without_prefix = substr($key, $length);
+                $fields_with_prefix[$key_without_prefix] = $value;
             }
         }
 
