@@ -78,6 +78,10 @@ class CF7_ZWR_Api {
         $posted_data = $submission->get_posted_data();
         $webinar_id = get_post_meta($contactform->id(), 'cf7zwr-webinar_id', true);
 
+        if (!$webinar_id) {
+            return $wpcf;
+        }
+
         $field_parser = new CF7_ZWR_Field_Finder($posted_data);
         $fields = $field_parser->combine(['guessed', 'prefixed']);
 
