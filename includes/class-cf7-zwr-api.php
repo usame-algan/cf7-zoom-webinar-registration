@@ -85,7 +85,10 @@ class CF7_ZWR_Api {
         $field_parser = new CF7_ZWR_Field_Finder($posted_data);
         $fields = $field_parser->combine(['guessed', 'prefixed']);
 
-        if ($webinar_id) {
+        if (!array_key_exists('cf7zwr-confirm', $posted_data)) {
+            $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants', array('body' => wp_json_encode($fields)), 'POST');
+            $this->run($this->token);
+        } elseif ($posted_data['cf7zwr-confirm'][0]) {
             $this->build($this->api_url . '/webinars/' . $webinar_id . '/registrants', array('body' => wp_json_encode($fields)), 'POST');
             $this->run($this->token);
         }
