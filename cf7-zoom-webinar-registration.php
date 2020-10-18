@@ -3,7 +3,7 @@
  Plugin Name: CF7 Zoom Webinar registration
  Plugin URI: https://github.com/usame-algan/cf7-zoom-webinar-registration
  Description: Allow registrations for your Zoom Webinar through Wordpress Contact Form 7
- Version: 1.0.5
+ Version: 1.0.6
  Author: Usame Algan
  Author URI: https://usamealgan.com
  Text Domain: cf7-zwr
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Plugin constants
  */
 if (!defined('CF7_ZWR_VERSION')) {
-    define('CF7_ZWR_VERSION', '1.0.5' );
+    define('CF7_ZWR_VERSION', '1.0.6' );
 }
 
 if (!defined('CF7_ZWR_PATH')) {
